@@ -1,0 +1,51 @@
+ext_source:
+  raw_table: 
+    bankmandiri_creditdebit_details: reconcile_raw_details_at_mandiri
+    bankmandiri_creditdebit_summary: reconcile_raw_summary_at_mandiri
+    bni46_credit: cashlez_reconcile_raw_kredit_at_bni
+    bri_details: 20200522_ecom_cashlez_bri
+    linkaja_details: 191121091813001_trans_status_detail_report_421084648_linkaja
+  date_column:
+    regex:
+      bankmandiri_creditdebit_details: "^([0-9]{1,2})+\\-+([0-9]{1,2})+\\-+([0-9]{1,2})$"
+      bankmandiri_creditdebit_summary: "^([0-9]{1,2})+\\-+([0-9]{1,2})+\\-+([0-9]{1,2})$"
+      bri_details: "/^([0-9]{1,4})+\\-+([0-9]{1,2})+\\-+([0-9]{1,2})$"
+      bni46_credit: "/^([0-9]{1,2})+\\/+([0-9]{1,2})+\\/+([0-9]{1,2})$"
+      linkaja_details: "/^([0-9]{1,2})+\\/+([0-9]{1,2})+\\/+([0-9]{1,4})$"
+    pattern:
+      bankmandiri_creditdebit_details: MDY
+      bankmandiri_creditdebit_summary: MDY
+      bri_details: YMD
+      bni46_credit: MDY
+      linkaja_details: DMY
+    position:
+      bankmandiri_creditdebit_details: 
+        - G
+        - H
+      bankmandiri_creditdebit_summary: 
+        - G
+      bri_details:
+        - C
+        - D
+        - G
+      bni46_credit:
+        - A
+        - G
+      linkaja_details:
+        - F
+        - H
+database:
+  ext_source:
+    type: mysql
+    host_ip: 127.0.0.1 
+    port: 3306
+    schema: cashlez
+    username: cashlez
+    password: Ca5hL3Zz 
+  int_source: 
+    type: mysql
+    host_ip: 127.0.0.1 
+    port: 3306
+    schema: cashlez
+    username: cashlez
+    password: Ca5hL3Zz 
